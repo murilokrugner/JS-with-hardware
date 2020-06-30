@@ -1,11 +1,15 @@
 import five from "johnny-five";
 
-class ArduinoController {
+class Port12Controller {
   async index(req, res) {
     var board = new five.Board();
 
+    /*board.wait(() => {
+      led.stop().off();
+    });*/
+
     board.on("ready", function() {
-      var led = new five.Led(13);
+      var led = new five.Led(12);
       led.blink(500);
     });
 
@@ -13,4 +17,4 @@ class ArduinoController {
   }
 }
 
-export default new ArduinoController();
+export default new Port12Controller();
